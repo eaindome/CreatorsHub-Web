@@ -1,0 +1,75 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+/* Custom color theme variables */
+:root {
+	/* Light mode colors */
+	--off-white: #f8f9fa;
+	--warm-gray: #e0e0e0;
+	--charcoal: #333333;
+	--coral-glow: #ff6b6b;
+	--light-coral: #ff8787;
+	--teal-spark: #4ecdc4;
+	--deep-teal: #3aa8a0;
+	--mustard-pop: #ffc107;
+	--soft-mustard: #ffd54f;
+
+	/* Dark mode colors */
+	--dark-gray: #1a1a1a;
+	--midnight-gray: #2d2d2d;
+	--soft-white: #e6e6e6;
+}
+
+/* Global styles */
+@layer base {
+	body {
+		@apply bg-[#F8F9FA] text-[#333333] transition-colors duration-300 dark:bg-[#1A1A1A] dark:text-[#E6E6E6];
+	}
+
+	/* Focus styles for accessibility */
+	:focus-visible {
+		@apply ring-2 ring-[#FF6B6B] outline-none;
+	}
+
+	/* Custom scrollbar */
+	::-webkit-scrollbar {
+		@apply w-2;
+	}
+
+	::-webkit-scrollbar-track {
+		@apply bg-[#E0E0E0] dark:bg-[#2D2D2D];
+	}
+
+	::-webkit-scrollbar-thumb {
+		@apply rounded-full bg-[#4ECDC4];
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		@apply bg-[#3AA8A0];
+	}
+}
+
+/* Custom component styles */
+@layer components {
+	.btn-primary {
+		@apply rounded-lg bg-[#FF6B6B] px-4 py-2 font-medium text-white transition-colors duration-200 hover:bg-[#FF8787];
+	}
+
+	.btn-secondary {
+		@apply rounded-lg bg-[#4ECDC4] px-4 py-2 font-medium text-white transition-colors duration-200 hover:bg-[#3AA8A0];
+	}
+
+	.tag-badge {
+		@apply rounded-full bg-[#4ECDC4]/20 px-2 py-1 text-xs text-[#4ECDC4] transition-colors duration-200 hover:bg-[#4ECDC4]/30;
+	}
+
+	.card {
+		@apply overflow-hidden rounded-lg bg-white shadow-sm transition-all duration-300 hover:shadow-md dark:bg-[#2D2D2D];
+	}
+}
+
+/* Dark mode styles */
+.dark body {
+	@apply bg-[#1A1A1A] text-[#E6E6E6];
+}
